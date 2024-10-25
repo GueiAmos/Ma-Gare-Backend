@@ -46,12 +46,17 @@ class UserController extends Controller
             if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return response()->json(['status' => false, 'message' => 'Les informations de connexion sont incorrectes']);
             }
+<<<<<<< HEAD
             // Récupérer l'utilisateur authentifié
             $user = Auth::user();
             // Création d'un token personnel pour l'utilisateur
             $token = $user->createToken($user->name)->plainTextToken;
 
             // Réponse JSON
+=======
+            $user = Auth::user();
+            $token = $user->createToken($user->name)->plainTextToken;
+>>>>>>> aa8d954715d201e3f24e2e43f0f792f1059046dd
             return response()->json([
                 'status' => true,
                 'message' => 'Connexion réussie',
