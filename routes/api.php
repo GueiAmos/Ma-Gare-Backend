@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\DestinationController;
+use App\Http\Controllers\Api\GareController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +25,24 @@ Route::middleware('auth:sanctum')->group(function () {
     //return $request->user();
     Route::post("logout", [UserController::class, 'logout']); //deconnexion de l'utilisateur
     Route::delete("deleteUser", [UserController::class, 'deleteUser']); //supprimer de l'utilisateur
-    
+
+    //Actions sur les destinations
+    Route::prefix('destinations')->group(function () {
+        Route::get('list', [DestinationController::class, 'list']);
+        Route::post('add', [DestinationController::class, 'add']);
+        //Route::put('edit/{id}', [DestinationController::class, 'edit']); 
+        // Route::delete('delete/{id}', [DestinationController::class, 'delete']); 
+    });
+
+
+});
+
+//Actions sur la gare
+Route::prefix('gare')->group(function () {
+    Route::get('list', [GareController::class, 'list']);
+    Route::post('add', [GareController::class, 'add']);
+    Route::put('edit/{id}', [GareController::class, 'edit']);
+    Route::delete('delete/{id}', [GareController::class, 'delete']);
 });
 
 

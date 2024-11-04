@@ -26,7 +26,7 @@ class Gare extends Model
 {
 	protected $table = 'gares';
 	protected $primaryKey = 'idGare';
-	public $incrementing = false;
+	public $incrementing = true;
 	public $timestamps = false;
 
 	protected $casts = [
