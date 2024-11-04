@@ -26,13 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("logout", [UserController::class, 'logout']); //deconnexion de l'utilisateur
     Route::delete("deleteUser", [UserController::class, 'deleteUser']); //supprimer de l'utilisateur
 
-    //Actions sur les destinations
-    Route::prefix('destinations')->group(function () {
-        Route::get('list', [DestinationController::class, 'list']);
-        Route::post('add', [DestinationController::class, 'add']);
-        //Route::put('edit/{id}', [DestinationController::class, 'edit']); 
-        // Route::delete('delete/{id}', [DestinationController::class, 'delete']); 
-    });
+
 
 
 });
@@ -43,6 +37,14 @@ Route::prefix('gare')->group(function () {
     Route::post('add', [GareController::class, 'add']);
     Route::put('edit/{id}', [GareController::class, 'edit']);
     Route::delete('delete/{id}', [GareController::class, 'delete']);
+});
+
+//Actions sur les destinations
+Route::prefix('destination')->group(function () {
+    Route::get('list', [DestinationController::class, 'list']);
+    Route::post('add', [DestinationController::class, 'add']);
+    Route::put('edit/{id}', [DestinationController::class, 'edit']);
+    Route::delete('delete/{id}', [DestinationController::class, 'delete']);
 });
 
 

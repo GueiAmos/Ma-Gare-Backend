@@ -35,7 +35,8 @@ class Destination extends Model
 	];
 
 	protected $fillable = [
-		'NomDesination',
+		'idDestination',
+		'NomDestination',
 		'PrixDestination',
 		'idGare'
 	];
