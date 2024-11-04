@@ -22,16 +22,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Depart extends Model
 {
-	protected $table = 'depart';
+	protected $table = 'departs';
 	protected $primaryKey = 'idDepart';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'HeureDepart' => 'datetime'
+		'HeureDepart' => 'datetime',
 	];
 
 	protected $fillable = [
+		'idDepart',
 		'HeureDepart',
 		'idDestination'
 	];
